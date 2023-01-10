@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %} Add Employee {% endblock %}
+{% block content %}
+<h1>Add New Employee Data</h1>
+<hr>
+  <form class="row g-3" action="/add_emp" method="post">
+      {% csrf_token %}
+  <div class="mb-1 col-6">
+    <label for="inputFirstname" class="form-label">Firstname</label>
+    <input type="text" class="form-control" name="firstName" value="{{first_name}}" id="inputFirstname" required>
+  </div>
+ <div class="mb-1 col-6">
+    <label for="inputLastname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" name="lastName" id="inputLastname" required>
+  </div>
+  <div class="mb-1 col-3">
+    <label for="inputAddress" class="form-label">Salary</label>
+    <input type="text" class="form-control" name="salary" id="inputAddress" placeholder="0">
+  </div>
+  <div class="mb-1 col-3">
+    <label for="inputAddress2" class="form-label">Bonus</label>
+    <input type="text" class="form-control" name="bonus" id="inputAddress2" placeholder="0">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Phone</label>
+    <input type="text" class="form-control" name="phone" id="inputCity" required>
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">Department</label>
+    <select id="inputState" class="form-select" name="department" required>
+      <option selected>None</option>
+       {% for dept in depts %}
+      <option value="{{dept.id}}">{{dept.name}}</option>
+        {% endfor %}
+    </select>
+  </div>
+      <div class="col-md-4">
+    <label for="inputState1" class="form-label">Role</label>
+    <select id="inputState1" class="form-select" name="role" required>
+      <option selected>None</option>
+        {% for role in roles %}
+      <option value="{{role.id}}">{{role.name}}</option>
+        {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Hire date</label>
+    <input type="date" class="form-control" id="inputZip" name="date">
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock %}

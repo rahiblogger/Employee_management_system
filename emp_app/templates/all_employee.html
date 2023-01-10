@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} All Employee {% endblock %}
+{% block content %}
+
+<table class="table table-hover">
+<thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">dept</th>
+      <th scope="col">salary</th>
+      <th scope="col">bonus</th>
+      <th scope="col">role</th>
+      <th scope="col">phone</th>
+      <th scope="col">hire_date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for employee in all_employee %}
+    <tr>
+      <th scope="row">{{employee.id}}</th>
+      <td>{{employee.first_name}}</td>
+      <td>{{employee.last_name}}</td>
+      <td>{{employee.dept}}</td>
+      <td>{{employee.salary}}</td>
+      <td>{{employee.bonus}}</td>
+      <td>{{employee.role}}</td>
+      <td>{{employee.phone}}</td>
+      <td>{{employee.hire_date}}</td>
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+        <div class="col-md-12 text-center">
+            <a type="button" class="btn btn-primary" href="/">Back</a>
+        </div>
+
+{% endblock %}

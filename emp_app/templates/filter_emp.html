@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Add Employee {% endblock %}
+{% block content %}
+<h1>Filter Employee Data</h1>
+<hr>
+  <form class="row g-3" action="/filter_emp" method="post">
+      {% csrf_token %}
+  <div class="mb-1 col-6">
+    <label for="inputFirstname" class="form-label">Firstname/Lastname</label>
+    <input type="text" class="form-control" name="name" id="inputFirstname">
+  </div>
+
+  <div class="mb-1 col-6">
+    <label for="inputDepartment" class="form-label">Department</label>
+    <input type="text" class="form-control" name="department" id="inputDepartment">
+  </div>
+      <div class="mb-1 col-6">
+    <label for="inputRole" class="form-label">Role</label>
+    <input type="text" class="form-control" name="role" id="inputRole">
+  </div>
+
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock %}
